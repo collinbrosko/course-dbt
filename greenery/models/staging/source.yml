@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+
+  - name: greenery # name of the source (this can be named whatever you want, but should be descriptive. this source (superheroes) is used for our week 1 tutorial so thats why i named it this way)
+    schema: public # this is the schema our raw data lives in
+    database: dbt # this is the name of our database
+
+    tables:
+      - name: addresses 
+      - name: users
+      - name: promos
+      - name: products
+      - name: orders
+      - name: order_items
+      - name: events
+      - name: superheroes

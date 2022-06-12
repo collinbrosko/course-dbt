@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_greenery__addressess
+  - name: stg_greenery__events
+  - name: stg_greenery__order_items
+  - name: stg_greenery__orders 
+  - name: stg_greenery__products
+  - name: stg_greenery__promos
+  - name: stg_greenery__superheroes
+  - name: stg_greenery__users
