@@ -103,3 +103,6 @@ SELECT repeat_users/total_users FROM combined
 
 ### What are good indicators of a user who will likely purchase again? What about indicators of users who are likely NOT to purchase again? If you had more data, what features would you want to look into to answer this question?
 Good indications of users who will likely purchase again are: how many times that a users view a product, the amount of time that a user spent viewing a product, the location of the user, the time of day that an order was made, the day of week that the order was made, products likely to be purchased together, if the user clicked a link provided from an email, what URLs the user visited directly after viewing a product, what path did the user use to navigate to the site. All of these indicators would also be able to identify users who are not likely to purchase again. 
+
+### Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.
+I would make sure that every model and view has a freshness test and those notifications were monitored daily. I would also use the test that identify null or incorret rows based on the test SQL files to populate another view or table that could be loading into a dashboard to monitor on a daily basis the amount of bad data that was being loaded into our system
