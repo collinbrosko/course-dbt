@@ -5,16 +5,16 @@
 }}
 
 SELECT 
-DISTINCT(event_id),
-session_id,
-user_id,
-page_url,
-created_at,
-event_type,
-order_id,
+DISTINCT(events.event_id),
+events.session_id,
+events.user_id,
+events.page_url,
+events.created_at,
+events.event_type,
+events.order_id,
 events.product_id,
 name, 
 price
 FROM {{ ref('stg_greenery__events') }} AS events
-LEFT JOIN {{ ref('stg_greenery__events') }} AS products on events.product_id=products.product_id
+LEFT JOIN {{ ref('stg_greenery__products') }} AS products on events.product_id=products.product_id
 
