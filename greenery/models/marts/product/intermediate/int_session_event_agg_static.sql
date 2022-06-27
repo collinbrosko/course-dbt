@@ -15,5 +15,6 @@ session_id
 , SUM(case when event_type = 'page_view' then 1 else 0 end) as page_view
 , SUM(case when event_type = 'package_shipped' then 1 else 0 end) as package_shipped
 FROM {{ ref('stg_greenery__events') }}
-GROUP BY 1,2,3
+GROUP BY 1,2,3,4
+
 
