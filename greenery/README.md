@@ -109,3 +109,8 @@ I would make sure that every model and view has a freshness test and those notif
 
 ## Week 3
 ### What is our overall conversion rate?
+62.457%
+SELECT SUM(checkout)/COUNT(DISTINCT session_id)
+FROM dbt_collinb.int_session_event_agg
+
+### What is our conversion rate by product?
