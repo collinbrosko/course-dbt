@@ -106,3 +106,6 @@ Good indications of users who will likely purchase again are: how many times tha
 
 ### Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.
 I would make sure that every model and view has a freshness test and those notifications were monitored daily. I would also use the test that identify null or incorret rows based on the test SQL files to populate another view or table that could be loading into a dashboard to monitor on a daily basis the amount of bad data that was being loaded into our system
+
+## Week 3
+### What is our overall conversion rate?
