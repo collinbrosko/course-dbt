@@ -114,3 +114,28 @@ SELECT SUM(checkout)/COUNT(DISTINCT session_id)
 FROM dbt_collinb.int_session_event_agg
 
 ### What is our conversion rate by product?
+Alocasia Polly - 52.94117647058823529400
+Aloe Vera - 55.38461538461538461500
+Angel Wings Begonia - 52.45901639344262295100
+Arrow Head - 61.90476190476190476200
+Bamboo - 62.68656716417910447800 ...
+
+select 
+    name
+    , sum(add_to_cart) / count(distinct session_id)*100 as conversion_rate_by_product      
+from dbt_collinb.int_session_event_agg as session_event_agg
+LEFT JOIN dbt_collinb.dim_product AS dim_product ON session_event_agg.product_id=dim_product.product_id
+group by 1
+
+### Part 2:Create a macro to simplify part of a model(s)
+
+{%- macro events(event_type) -%}
+    SUM(CASE WHEN event_type = '{{event_type}}' THEN 1 ELSE 0 END)
+{%- endmacro -%}
+
+
+### Part 4: PART 4: Install a package (i.e. dbt-utils, dbt-expectations) and apply one or more of the macros to your project
+  set event_types = dbt_utils.get_query_results_as_dict(
+    "SELECT DISTINCT quote_literal(event_type) AS event_type, event_type AS column_name FROM"
+    ~ ref('stg_greenery__events')
+
